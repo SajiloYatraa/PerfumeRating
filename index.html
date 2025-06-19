@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Scent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* All CSS is the same as the previous correct version */
+        :root{--bg-dark:#121212;--bg-light-dark:#1E1E1E;--text-light:#E0E0E0;--accent-gold:#D4AF37;--accent-gold-hover:#f7d468;--border-color:#444;--bg-input:#333;--google-blue:#4285F4}body{font-family:'Roboto',sans-serif;background-color:var(--bg-dark);color:var(--text-light);margin:0;line-height:1.6}.container{width:100%;max-width:1200px;margin:0 auto;padding:1.5rem;box-sizing:border-box}.page{display:none;animation:fadeIn .5s ease-in-out}.page.active{display:block}@keyframes fadeIn{from{opacity:0}to{opacity:1}}#page-auth.active,#page-login.active,#page-question.active,#page-signup.active{display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:100vh}#page-category-selection{padding-top:5rem;padding-bottom:5rem}#question-header,#review-header,#main-header,#auth-header,#login-header,#signup-header{font-family:'Playfair Display',serif;color:var(--accent-gold);text-transform:capitalize;font-size:2.2rem;text-align:center;margin-bottom:1rem}.hero-section{min-height:90vh;background:linear-gradient(rgba(18,18,18,.7),rgba(18,18,18,.7)),url(https://images.unsplash.com/photo-1557175344-7e0741035de2?q=80&w=2940&auto=format&fit=crop) center/cover no-repeat;display:flex;justify-content:center;align-items:center;text-align:center;padding:1.5rem}#page-landing .container{margin-top:-80px;position:relative;z-index:10}.hero-content h1{font-family:'Playfair Display',serif;font-size:3rem;color:#fff;margin-bottom:1rem;text-shadow:1px 1px 10px rgba(0,0,0,.5)}.hero-content p{color:var(--text-light);font-size:1.1rem;font-weight:300;max-width:500px;margin:0 auto 1.5rem auto}#category-selection{display:grid;grid-template-columns:1fr;gap:1.5rem}.card{background:var(--bg-light-dark);padding:2rem;text-align:center;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.3);transition:transform .3s ease,box-shadow .3s ease,background-color .3s ease;cursor:pointer;border:2px solid var(--border-color)}.card:hover{transform:scale(1.05) translateY(-5px);box-shadow:0 12px 40px rgba(0,0,0,.5);background-color:#2a2a2a;border-color:var(--accent-gold)}.card h2{font-family:'Playfair Display',serif;color:var(--accent-gold);font-size:1.8rem;margin:0}.btn{background-color:var(--accent-gold);color:var(--bg-dark);padding:.8rem 1.5rem;border:none;border-radius:8px;cursor:pointer;transition:background-color .3s ease-in-out,color .3s ease-in-out;font-size:1rem;font-weight:700;text-decoration:none;display:inline-block;text-align:center}.btn:hover{background-color:var(--accent-gold-hover)}.btn-google{background-color:var(--google-blue);color:#fff;display:flex;align-items:center;justify-content:center;gap:12px;padding:.75rem 1.5rem}.btn-google:hover{background-color:#5a95f5}.btn:disabled{background-color:#555;color:#888;cursor:not-allowed}a.btn-home{position:absolute;top:20px;left:20px;z-index:100}.button-group{display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}#question-page-content,.auth-page-content{width:100%;text-align:center}.auth-page-content .button-group{flex-direction:column;gap:1.5rem;width:100%;max-width:300px;margin-left:auto;margin-right:auto}.auth-page-content .btn{width:100%;box-sizing:border-box}#review-form,#login-form,#signup-form{width:100%;max-width:400px;margin:1.5rem auto;background:var(--bg-light-dark);padding:1.5rem;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.3);border:1px solid var(--border-color)}.form-group{margin-bottom:1.5rem}.form-group label{display:block;margin-bottom:.5rem;font-weight:300;color:var(--accent-gold)}input,textarea{width:100%;padding:.75rem;border:1px solid #555;border-radius:8px;font-size:1rem;box-sizing:border-box;background-color:var(--bg-input);color:var(--text-light)}input[type="date"]::-webkit-calendar-picker-indicator{filter:invert(1)}.photo-preview{max-width:150px;margin-top:1rem;display:none;border-radius:8px;border:2px solid #555}.star-rating .star{font-size:2.2rem;color:#555;cursor:pointer;transition:color .2s,transform .2s;display:inline-block}.star-rating .star:hover{transform:scale(1.2)}.star-rating .star.selected,.review-card-stars .star.selected{color:var(--accent-gold)}.review-card-stars .star{font-size:1.2rem;color:#555}.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;z-index:1000;padding:1rem;box-sizing:border-box}.modal.active{opacity:1;visibility:visible}.modal-content{background:var(--bg-light-dark);padding:2rem;border-radius:16px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.3);border:1px solid var(--accent-gold);width:100%;max-width:400px}.page-header{text-align:center;padding:4rem 1rem 2rem 1rem}.filters{margin-top:1.5rem}.filters label{margin-right:.5rem}#sort-by{padding:.5rem;border-radius:8px;border:1px solid #555;background-color:var(--bg-input);color:var(--text-light);font-size:1rem}#reviews-grid{display:grid;grid-template-columns:1fr;gap:2rem;padding-bottom:4rem}.review-card{background:var(--bg-light-dark);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.3);overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--border-color);transition:transform .3s ease,box-shadow .3s ease}.review-card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(0,0,0,.5)}.review-card img{width:100%;height:220px;object-fit:cover;background-color:var(--bg-input)}.review-card-content{padding:1.5rem;flex-grow:1}.review-card-content h3{font-family:'Playfair Display',serif;color:var(--accent-gold);margin-top:0;font-size:1.5rem}.review-card-content .date{font-size:.9rem;color:#aaa;margin:.5rem 0;font-weight:300}.review-card-content p{font-weight:300}.no-js-message{text-align:center;padding:1rem;background:var(--accent-gold);color:var(--bg-dark)}:focus-visible{outline:3px solid var(--accent-gold-hover);outline-offset:3px}.btn-google:focus-visible{outline-color:#8ab4f8}.auth-separator{display:flex;align-items:center;text-align:center;color:#aaa;margin:1.5rem 0}.auth-separator::before,.auth-separator::after{content:'';flex:1;border-bottom:1px solid #444}.auth-separator:not(:empty)::before{margin-right:.5em}.auth-separator:not(:empty)::after{margin-left:.5em}.text-link{color:var(--accent-gold);text-decoration:none;cursor:pointer}.text-link:hover{text-decoration:underline}#user-info{position:absolute;top:20px;right:20px;z-index:100;display:flex;align-items:center;gap:1rem}#user-info img{width:40px;height:40px;border-radius:50%}#user-info span{font-weight:700}#email-verification-notice{display:none;padding:1rem;background-color:var(--accent-gold);color:var(--bg-dark);text-align:center;font-weight:700;position:fixed;width:100%;top:0;left:0;z-index:2000}.email-verification-notice.show{display:block}@media (min-width:768px){.container{padding:2rem}#page-landing .container{margin-top:-80px}.hero-content h1{font-size:4.5rem}.hero-content p{font-size:1.3rem}#question-header,#review-header,#main-header,#auth-header,#login-header,#signup-header{font-size:3rem}#category-selection{grid-template-columns:repeat(2,1fr)}#review-form,#login-form,#signup-form{padding:2.5rem}.star-rating .star{font-size:2.5rem}#reviews-grid{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.review-card img{height:250px}}@media (min-width:1200px){#category-selection{grid-template-columns:repeat(4,1fr)}}
+    </style>
+</head>
+<body>
+
+    <div id="user-info"></div>
+
+    <div id="email-verification-notice">
+        Please check your inbox to verify your email address.
+    </div>
+
+    <div id="page-landing" class="page active"><div class="hero-section"><div class="hero-content"><h1>Find Your Scent</h1><p>Discover and share your favorite perfumes.</p><button class="btn" id="start-discovery">Start Your Discovery</button></div></div><main class="container"></main></div>
+    <div id="page-auth" class="page"><a href="#landing" class="btn btn-home">Home</a><main class="container"><section class="auth-page-content"><h1 id="auth-header">Welcome!</h1><p>Please choose an option to continue.</p><div class="button-group"><button class="btn" id="go-to-login-btn">Login / Sign Up</button><button class="btn" id="continue-as-guest-btn">Continue as Guest</button></div></section></main></div>
+    <div id="page-signup" class="page"><a href="#landing" class="btn btn-home">Home</a><main class="container"><section class="auth-page-content"><h1 id="signup-header">Create an Account</h1><form id="signup-form" novalidate><div class="form-group"><label for="signup-name">Your Name</label><input type="text" id="signup-name" required></div><div class="form-group"><label for="signup-email">Email Address</label><input type="email" id="signup-email" required></div><div class="form-group"><label for="signup-password">Password (min. 6 characters)</label><input type="password" id="signup-password" required minlength="6"></div><button type="submit" class="btn">Create Account</button></form><p style="margin-top:1rem;">Already have an account? <a href="#login" class="text-link">Log In</a></p></section></main></div>
+    <div id="page-login" class="page"><a href="#landing" class="btn btn-home">Home</a><main class="container"><section class="auth-page-content"><h1 id="login-header">Login</h1><form id="login-form" novalidate><div class="form-group"><label for="login-email">Email Address</label><input type="email" id="login-email" required></div><div class="form-group"><label for="login-password">Password</label><input type="password" id="login-password" required></div><button type="submit" class="btn">Log In</button></form><div class="auth-separator">OR</div><button class="btn btn-google" id="google-login-btn"><img src="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjE4cHgiIGhlaWdodD0iMThweCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNNDQuNSAyNGMwLTEuNjEtLjE0LTMuMTYtLjQxLTQuNjVIMjR2OC44NmgxMS41Yy0uNSwzLjU3LTIuMjgsNi42LTE0LjI4IDguODZWNDIuOWg5LjU4YzUuNi01LjE2IDguOC0xMi42MSA4LjgtMjAuNDVaIj48L3BhdGg+PHBhdGggZmlsbD0iI0ZCRkMwNSIgZD0iTTIyLjUgNDVjNS44MyAwIDEwLjcxLTIuMDYgMTQuMjgtNS43N0wyNy4xNyAzMC4xN2MtMS45NCAxLjM1LTYuNTggMS44LTkuNjggMEwzLjM3IDMwLjE3QzcuNjggNDAuMSA4OS4wNyA0NSAyMi41IDQ1WiI+PC9wYXRoPjxwYXRoIGZpbGw9IiNFQTQzMzUiIGQ9Ik0zLjM3IDE3LjgzYzAtMS43My4yOC0zLjQgLjc5LTQuOTJMMC4zIDguODVDLjEgMTEuNTMgMCAxNC40OSAwIDE3Ljgzcy4xIDUuOTYgLjMgOC43NWw0LjA4LTQuMDhjLS41MS0xLjUyLS43OS0zLjE5LS43OS00LjkzWiI+PC9wYXRoPjxwYXRoIGZpbGw9IiM0Mjg1RjQiIGQ9Ik0yMi41IDguODVjMy4xOCAwIDYuMDktMS4xNSA4LjM3LTMuMjdMMzggMEgyMi41QzEzLjkxIDAgNy42OCAxMC4xIDEgMTcuODNsNC4wOC00LjA4YzEuODgtNS4yIDYuNTQtNy45IDkuNTQtNy45WiI+PC9wYXRoPjwvc3ZnPg==" alt="Google logo" style="width: 18px; height: 18px;"><span>Sign in with Google</span></button><p style="margin-top: 1.5rem;">Don't have an account? <a href="#signup" class="text-link">Sign Up</a></p></section></main></div>
+    <div id="page-category-selection" class="page"><a href="#landing" class="btn btn-home">Home</a><main class="container"><h1 id="category-header" style="font-family:'Playfair Display',serif;color:var(--accent-gold);text-align:center;font-size:2.5rem;margin-bottom:2rem">Select a Category</h1><section id="category-selection"><div class="card" data-category="him"><h2>For Him</h2></div><div class="card" data-category="her"><h2>For Her</h2></div><div class="card" data-category="parents"><h2>For Parents</h2></div><div class="card" data-category="me"><h2>For Me</h2></div></section></main></div>
+    <div id="page-question" class="page"><a href="#landing" class="btn btn-home">Home</a><main class="container"><section id="question-page-content"><h1 id="question-header"></h1><p>Have you ever used any perfume in this category?</p><div class="button-group"><button id="yes-button" class="btn">Yes</button><button id="no-button" class="btn">No</button></div></section></main></div>
+    <div id="page-review" class="page"><a href="#landing" class="btn btn-home">Home</a><main class="container"><section id="review-page-content"><h1 id="review-header"></h1><form id="review-form"><div class="form-group"><label for="photo">Upload Photo</label><input type="file" id="photo" accept="image/*"><img id="photo-preview" class="photo-preview" src="" alt="Photo Preview"></div><div class="form-group"><label>Rating</label><div class="star-rating" id="star-rating" role="radiogroup" aria-label="Star Rating"><span class="star" data-value="1" role="radio" aria-label="1 star" aria-checked="false" tabindex="0">&#9733;</span><span class="star" data-value="2" role="radio" aria-label="2 stars" aria-checked="false" tabindex="0">&#9733;</span><span class="star" data-value="3" role="radio" aria-label="3 stars" aria-checked="false" tabindex="0">&#9733;</span><span class="star" data-value="4" role="radio" aria-label="4 stars" aria-checked="false" tabindex="0">&#9733;</span><span class="star" data-value="5" role="radio" aria-label="5 stars" aria-checked="false" tabindex="0">&#9733;</span></div></div><div class="form-group"><label for="title">Perfume Name / Title</label><input type="text" id="title" required></div><div class="form-group"><label for="comments">Comments</label><textarea id="comments" rows="4" required></textarea></div><div class="form-group"><label for="date-used">Date First Used</label><input type="date" id="date-used" required></div><button type="submit" id="submit-review" class="btn" disabled>Submit Review</button></form></section></main></div>
+    <div id="page-main" class="page"><a href="#landing" class="btn btn-home">Home</a><header class="page-header"><h1 id="main-header"></h1><div class="filters"><label for="sort-by">Sort By:</label><select id="sort-by"><option value="newest">Newest First</option><option value="oldest">Oldest First</option><option value="highest-rating">Highest Rating</option><option value="lowest-rating">Lowest Rating</option></select></div></header><main class="container"><section id="reviews-grid"></section></main></div>
+    <div id="thank-you-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true"><div class="modal-content"><h2 id="modal-title">Thank You!</h2><p>Your review has been submitted.</p><button id="close-modal" class="btn">View Reviews</button></div></div>
+    <noscript><p class="no-js-message">Please enable JavaScript to fully use this website.</p></noscript>
+
+    <script type="module">
+        // --- SDK IMPORTS ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+        // NEW: Import all necessary auth functions, including email verification
+        import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification, signOut } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
+
+        // --- FIREBASE INITIALIZATION ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuM804L-1zEvcP8i0KiNYU2vXaLSbW3nc",
+            authDomain: "perfume-rating.firebaseapp.com",
+            projectId: "perfume-rating",
+            storageBucket: "perfume-rating.appspot.com",
+            messagingSenderId: "1037621518138",
+            appId: "1:1037621518138:web:13302a5e55930a46c6ba03",
+            measurementId: "G-3NCT4SYQ8Q"
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const storage = getStorage(app);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- STATE & UI ELEMENTS ---
+            const state = { category: null, rating: 0, user: null };
+            const userInfoDiv = document.getElementById('user-info');
+            const verificationNotice = document.getElementById('email-verification-notice');
+
+            // --- AUTHENTICATION ---
+            onAuthStateChanged(auth, (user) => { 
+                if (user) {
+                    state.user = { id: user.uid, name: user.displayName, email: user.email, picture: user.photoURL, emailVerified: user.emailVerified };
+                    console.log("User state updated:", state.user);
+                    updateUserInfoUI();
+                    
+                    const currentHash = window.location.hash.split('?')[0];
+                    if (['#login', '#signup'].includes(currentHash)) {
+                         window.location.hash = '#category-selection';
+                    }
+                } else {
+                    state.user = null;
+                    updateUserInfoUI();
+                    console.log("Operating as Guest.");
+                    // Guest can't access review page
+                    if (window.location.hash.split('?')[0] === '#review') {
+                        window.location.hash = '#login';
+                    }
+                }
+            });
+
+            function updateUserInfoUI() {
+                userInfoDiv.innerHTML = '';
+                verificationNotice.classList.remove('show');
+                if (state.user) {
+                    const userImage = state.user.picture ? `<img src="${state.user.picture}" alt="User profile picture">` : '';
+                    const userName = state.user.name ? `<span>Hello, ${state.user.name.split(' ')[0]}</span>` : '';
+                    userInfoDiv.innerHTML = `${userImage}${userName}<button id="sign-out-btn" class="btn">Sign Out</button>`;
+                    document.getElementById('sign-out-btn').addEventListener('click', () => signOut(auth).then(() => { window.location.hash = '#landing'; }));
+                    
+                    // NEW: Show verification notice if user exists, has an email, but hasn't verified it yet
+                    const provider = auth.currentUser.providerData.some(p => p.providerId === 'password');
+                    if (provider && !state.user.emailVerified) {
+                        verificationNotice.classList.add('show');
+                    }
+                }
+            }
+
+            // --- FORM HANDLERS ---
+            document.getElementById('google-login-btn').addEventListener('click', () => signInWithPopup(auth, new GoogleAuthProvider()).catch(handleAuthError));
+            
+            document.getElementById('signup-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const name = document.getElementById('signup-name').value;
+                const email = document.getElementById('signup-email').value;
+                const password = document.getElementById('signup-password').value;
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    await updateProfile(userCredential.user, { displayName: name });
+                    // NEW: Send the verification email after creating the account
+                    await sendEmailVerification(userCredential.user);
+                    alert("Account created! Please check your email to verify your account.");
+                } catch (error) {
+                    handleAuthError(error);
+                }
+            });
+
+            document.getElementById('login-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                signInWithEmailAndPassword(auth, document.getElementById('login-email').value, document.getElementById('login-password').value).catch(handleAuthError);
+            });
+
+            function handleAuthError(error) {
+                console.error(`Auth Error: ${error.code}`, error.message);
+                alert(`Error: ${error.message}`);
+            }
+
+            // --- ROUTER & NAVIGATION ---
+            const pages = document.querySelectorAll('.page');
+            const navigateTo = (hash) => {
+                const cleanHash = (hash.split('?')[0] || '#landing') || '#landing';
+                const targetPage = document.querySelector(`#page-${cleanHash.substring(1)}`);
+                pages.forEach(p => p.classList.remove('active'));
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    window.scrollTo(0, 0);
+                    state.category = new URLSearchParams(hash.split('?')[1]).get('category');
+                    const initializers = { '#question': initQuestionPage, '#review': initReviewPage, '#main': initMainPage };
+                    if (initializers[cleanHash]) initializers[cleanHash]();
+                } else { document.getElementById('page-landing').classList.add('active'); }
+            };
+            navigateTo(window.location.hash);
+            window.addEventListener('hashchange', () => navigateTo(window.location.hash));
+            
+            // Event listeners
+            document.getElementById('start-discovery').addEventListener('click', () => window.location.hash = '#auth');
+            document.getElementById('go-to-login-btn').addEventListener('click', () => window.location.hash = '#login');
+            document.getElementById('continue-as-guest-btn').addEventListener('click', () => window.location.hash = '#category-selection');
+            document.querySelectorAll('#page-category-selection .card').forEach(c => c.addEventListener('click', () => window.location.hash = `#question?category=${c.dataset.category}`));
+            document.getElementById('yes-button').addEventListener('click', () => { if(state.category) window.location.hash = `#review?category=${state.category}`; });
+            document.getElementById('no-button').addEventListener('click', () => { if(state.category) window.location.hash = `#main?category=${state.category}`; });
+            
+            // --- REVIEW PAGE LOGIC ---
+            function initReviewPage() {
+                // ... (form reset logic remains the same)
+                const form = document.getElementById('review-form');
+                form.reset();
+                // ... (the rest of the setup logic is fine)
+
+                form.onsubmit = async (e) => {
+                    e.preventDefault();
+                    
+                    // NEW: Check if the user's email is verified before allowing submission
+                    const isEmailPasswordUser = auth.currentUser.providerData.some(p => p.providerId === 'password');
+                    if (isEmailPasswordUser && !auth.currentUser.emailVerified) {
+                        alert("Please verify your email address before submitting a review. Check your inbox for a verification link.");
+                        return; // Stop the submission
+                    }
+
+                    const submitBtn = document.getElementById('submit-review');
+                    // ... (rest of the submit logic with Storage upload remains the same)
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Submitting...';
+                    try {
+                        let photoUrl = '';
+                        const photoFile = document.getElementById('photo').files[0];
+                        if (photoFile && state.user) {
+                            submitBtn.textContent = 'Uploading Photo...';
+                            const filePath = `review-images/${state.user.id}/${Date.now()}-${photoFile.name}`;
+                            const storageRef = ref(storage, filePath);
+                            const snapshot = await uploadBytes(storageRef, photoFile);
+                            photoUrl = await getDownloadURL(snapshot.ref);
+                        }
+                        const reviewData = {
+                            photo: photoUrl, rating: state.rating,
+                            title: document.getElementById('title').value.trim(),
+                            comments: document.getElementById('comments').value.trim(),
+                            dateUsed: document.getElementById('date-used').value,
+                            timestamp: new Date(), userId: state.user.id, userName: state.user.name
+                        };
+                        await addDoc(collection(db, 'reviews', state.category, 'items'), reviewData);
+                        showThankYouModal();
+                    } catch (error) {
+                        alert(`Submission Error: ${error.message}`);
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit Review';
+                    }
+                };
+            }
+
+            // All other functions (showThankYouModal, renderReviews, etc.) remain the same.
+            function showThankYouModal(){const e=document.getElementById("thank-you-modal");e.classList.add("active"),document.getElementById("close-modal").onclick=()=>{e.classList.remove("active"),window.location.hash=`#main?category=${state.category}`}}
+            function initQuestionPage(){if(state.category)document.getElementById("question-header").textContent=`For ${state.category.replace("-"," ")}`}
+            function initMainPage(){if(state.category){document.getElementById("main-header").textContent=`Reviews for ${state.category.replace("-"," ")}`,document.getElementById("sort-by").onchange=renderReviews,renderReviews()}}
+            async function renderReviews(){if(!state.category)return;const e=document.getElementById("reviews-grid");e.innerHTML='<p style="text-align: center;">Loading reviews...</p>';try{const t=collection(db,"reviews",state.category,"items"),a=document.getElementById("sort-by").value;let l="timestamp",r="desc";"oldest"===a?r="asc":"highest-rating"===a?l="rating":"lowest-rating"===a&&(l="rating",r="asc");const n=query(t,orderBy(l,r)),s=await getDocs(n),o=s.docs.map(e=>({id:e.id,...e.data()}));if(0===o.length)return void(e.innerHTML='<p style="text-align: center;">No reviews yet. Be the first to add one!</p>');e.innerHTML="",o.forEach(t=>{const a=document.createElement("div");a.className="review-card";const l=Array.from({length:5},(e,a)=>`<span class="star ${a<t.rating?"selected":""}">&#9733;</span>`).join("");let r=t.timestamp?.toDate()?.toLocaleDateString("en-GB",{year:"numeric",month:"long",day:"numeric"})||"N/A";a.innerHTML=`<img src="${t.photo||"https://via.placeholder.com/400x250/333333/FFFFFF/?text=No+Image"}" alt="${t.title||""}"><div class="review-card-content"><h3>${t.title}</h3><div class="date">Added by ${t.userName||"Guest"}</div><div class="review-card-stars">${l}</div><p>${t.comments}</p><div class="date">Date Added: ${r}</div></div>`,e.appendChild(a)})}catch(t){console.error("Error fetching reviews:",t),e.innerHTML=`<p style="text-align: center; color: #ff6b6b;">Error: ${t.message}</p>`}}
+        });
+    </script>
+</body>
+</html>
